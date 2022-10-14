@@ -44,7 +44,7 @@ function LoginForm(props) {
     }
 
     return(
-        <>
+        <div className="login-form">
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="username">
                     <Form.Label>Username</Form.Label>
@@ -83,7 +83,7 @@ function LoginForm(props) {
                     Login
                 </Button>
             </Form>
-        </>
+        </div>
     )
 }
 

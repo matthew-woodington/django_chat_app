@@ -7,7 +7,7 @@ import ChatApp from "./components/MainApp/ChatApp";
 function App() {
   const [auth, setAuth] = useState(!!Cookies.get("Authorization"))
   return (
-    <div className="App">
+    <div className="main">
         {auth ? <ChatApp /> : <UserLogin setAuth={setAuth} />}
     </div>
   );
