@@ -13,11 +13,11 @@ class RoomListAPIView(generics.ListAPIView):
 
 class ChatListAPIView(generics.ListCreateAPIView):
     serializer_class = ChatSerializer
-    queryset = Chat.objects.all()
+    # queryset = Chat.objects.all()
 
-    # def get_queryset(self):
-    #     room = self.kwargs['room']
-    #     return Chat.objects.filter(room=room)
+    def get_queryset(self):
+        room = self.kwargs['room']
+        return Chat.objects.filter(room=room)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

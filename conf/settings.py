@@ -149,3 +149,6 @@ REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/static')
 # SITE_ID
 # https://docs.djangoproject.com/en/4.1/ref/contrib/sites/
 SITE_ID = 1
+
+# EMAIL_BACKEND
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
