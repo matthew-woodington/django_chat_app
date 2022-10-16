@@ -52,6 +52,8 @@ function Messages(props) {
     } else {
       const data = await response.json();
       console.log(data);
+      getMessages()
+      setText('')
     }
   };
 
@@ -60,20 +62,26 @@ function Messages(props) {
     .map((message) => <MessageItem key={message.id} message={message}/>);
 
   return (
-    <div>
-        <ul>{messageList}</ul>
-        <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="message">
-                <Form.Label></Form.Label>
-                <Form.Control 
-                    type="text" 
-                    value={text}
-                    onChange={(e) => setText(e.target.value)} />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Send
-            </Button>
-        </Form>
+    <div className="send-recieve">
+        <ul className="list">{messageList}</ul>
+        <div className="messeger">
+            <Form onSubmit={handleSubmit} className="row align-items-end">
+                <Form.Group className="col-10" controlId="message">
+                    <Form.Label></Form.Label>
+                    <Form.Control
+                        required
+                        placeholder="Message"
+                        type="text" 
+                        value={text}
+                        onChange={(e) => setText(e.target.value)} />
+                </Form.Group>
+                <div className="button-container col-2 ms-auto">
+                    <Button className="send-button" variant="primary" type="submit">
+                        Send
+                    </Button>
+                </div>
+            </Form>
+        </div>
     </div>
   );
 }

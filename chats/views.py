@@ -6,7 +6,7 @@ from .permisions import IsAuthorOrReadOnly
 # Create your views here.
 
 
-class RoomListAPIView(generics.ListAPIView):
+class RoomListAPIView(generics.ListCreateAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 

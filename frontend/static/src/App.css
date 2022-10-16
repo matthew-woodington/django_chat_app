@@ -1,37 +1,17 @@
-import login.css
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.list {
+  list-style: none;
+  padding: 0;
 }
 
 .main {
+  width: 80%;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -47,11 +27,55 @@ import login.css
   width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rooms {
+  width: 20%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.room-li {
+  width: 100%;
+}
+
+.room-button {
+  width: 100%;
+  border: none;
+}
+
+.add-room-input {
+  margin-bottom: 5px;
+}
+
+.send-recieve {
+  width: 80%;
+  padding: 10px 0 0 0;
+  background-color: #999999;
+}
+
+.message {
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #f3f6f4;
+  padding: 10px;
+}
+
+.edit-box {
+  text-align: right;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.messeger {
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  background-color: #fff;
+}
+
+.send-button {
+  width: 100%;
 }
