@@ -1,7 +1,9 @@
 .app {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  background-color: #999999;
+  min-height: 100vh;
 }
 
 .list {
@@ -13,6 +15,10 @@
   width: 80%;
   display: flex;
   justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
 }
 
 .user-login {
@@ -33,7 +39,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  margin: 10px;
+  padding: 10px;
+  margin: 0;
+  background-color: #fff;
 }
 
 .room-li {
@@ -53,6 +61,7 @@
   width: 80%;
   padding: 10px 0 0 0;
   background-color: #999999;
+  border-radius: 5px;
 }
 
 .message {
@@ -64,6 +73,8 @@
 
 .edit-box {
   text-align: right;
+  color: #999999;
+  font-size: 18px;
 }
 
 .button-container {
@@ -74,8 +85,45 @@
   width: 100%;
   padding: 0 10px 10px 10px;
   background-color: #fff;
+  position: relative;
+  bottom: 0;
 }
 
 .send-button {
   width: 100%;
+}
+
+.padding {
+  min-height: 200px;
+}
+
+.trash {
+  cursor: pointer;
+}
+
+@media (max-width: 956px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .rooms {
+    width: 100%;
+  }
+
+  .send-recieve {
+    width: 100%;
+  }
+}
+
+@media (max-width: 668px) {
+  .main {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .text-input {
+    margin-bottom: 5px;
+  }
 }

@@ -9,7 +9,7 @@ function MessageItem(props) {
         <p>{props.message.text}</p>
       </div>
       <div className="edit-box col-2">
-        <BsFillTrashFill />
+        <BsFillTrashFill className='trash' onClick={() => props.deleteMessage(props.message.id)}/>
         <AiFillEdit />
       </div>
     </li>

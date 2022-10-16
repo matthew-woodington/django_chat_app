@@ -57,16 +57,35 @@ function Messages(props) {
     }
   };
 
+  const deleteMessage = async (id) => {
+    const response = await fetch(`/api_v1/chats/${id}/`, {
+      method: 'DELETE',
+      headers: {
+        'X-CSRFToken': Cookies.get('csrftoken'),
+      },
+  });
+  const data = await response.json();
+  console.log(data);
+//   const index = messages.findIndex((message) => message.id === id);
+//   const updatedMessages = [...messages]
+//   updatedMessages.splice(index, 1)
+//   setMessages(updatedMessages);
+  getMessages()
+  }
+
+
   const messageList = messages
     .filter((message) => props.filter ? message.room === props.filter : message)
-    .map((message) => <MessageItem key={message.id} message={message}/>);
+    .map((message) => <MessageItem key={message.id} message={message} deleteMessage={deleteMessage}/>);
 
   return (
     <div className="send-recieve">
-        <ul className="list">{messageList}</ul>
+        <div className="padding">
+            <ul className="list">{messageList}</ul>
+        </div>
         <div className="messeger">
             <Form onSubmit={handleSubmit} className="row align-items-end">
-                <Form.Group className="col-10" controlId="message">
+                <Form.Group className="col-sm-10 col-12 text-input" controlId="message">
                     <Form.Label></Form.Label>
                     <Form.Control
                         required
@@ -75,7 +94,7 @@ function Messages(props) {
                         value={text}
                         onChange={(e) => setText(e.target.value)} />
                 </Form.Group>
-                <div className="button-container col-2 ms-auto">
+                <div className="button-container col-sm-2 col-12">
                     <Button className="send-button" variant="primary" type="submit">
                         Send
                     </Button>
