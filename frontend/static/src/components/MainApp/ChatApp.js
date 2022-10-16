@@ -4,11 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Messages from "./Messages";
 
 
-function ChatApp() {
+function ChatApp(props) {
   const [rooms, setRooms] = useState(null);
   const [activeRoom, setActiveRoom] = useState(1);
-  const [filter, setFilter] = useState(activeRoom.id)
-//   const [messages, setMessages] = useState([]);
+  const [filter, setFilter] = useState(1)
 
   const handleError = (err) => {
     console.warn(err);
@@ -34,6 +33,7 @@ function ChatApp() {
 
     const updateFilter = (id) => {
         setFilter(id);
+        setActiveRoom(id)
     };
 
   const roomButtons = rooms.map(room => (
@@ -50,7 +50,9 @@ function ChatApp() {
   return (
     <div>
         <ul>{roomButtons}</ul>
-        <Messages activeRoom={activeRoom} filter={filter}/>
+        <Messages filter={filter} 
+        // user={props.user} 
+        activeRoom={activeRoom}/>
     </div>
   );
 }

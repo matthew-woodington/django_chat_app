@@ -9,6 +9,14 @@ class RoomSerializer(serializers.ModelSerializer):
 
 
 class ChatSerializer(serializers.ModelSerializer):
+    # username = serializers.ReadOnlyField(source='user.username')
+    # author = serializers.CharField()
+
     class Meta:
         model = Chat
-        fields = ('id', 'text', 'room', 'author')
+        fields = (
+            'id',
+            'text',
+            'room',
+            'author',
+        )

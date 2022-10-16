@@ -5,10 +5,16 @@ import UserLogin from "./components/Login/UserLogin";
 import ChatApp from "./components/MainApp/ChatApp";
 
 function App() {
-  const [auth, setAuth] = useState(!!Cookies.get("Authorization"))
+  const [auth, setAuth] = useState(!!Cookies.get("Authorization"));
+  // const [user, setUser] = useState('')
+
   return (
     <div className="main">
-        {auth ? <ChatApp /> : <UserLogin setAuth={setAuth} />}
+        {auth ? <ChatApp
+        //  user={user}
+         /> : <UserLogin setAuth={setAuth} 
+        //  setUser={setUser}
+         />}
     </div>
   );
 }
