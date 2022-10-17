@@ -24,8 +24,8 @@ function LoginForm(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // props.setUser(state.username)
-    // console.log(state.username)
+    props.setUser(state.username);
+    console.log(state.username);
     const options = {
       method: "POST",
       headers: {
@@ -48,9 +48,11 @@ function LoginForm(props) {
   return (
     <div className="login-form">
       <Form onSubmit={handleSubmit}>
+        <h1 className="login-title">Login</h1>
         <Form.Group className="mb-3" controlId="username">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Username:</Form.Label>
           <Form.Control
+            className="input"
             type="text"
             placeholder="Enter username"
             value={state.username}
@@ -60,8 +62,9 @@ function LoginForm(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Email:</Form.Label>
           <Form.Control
+            className="input"
             type="email"
             placeholder="Enter email"
             value={state.email}
@@ -71,8 +74,9 @@ function LoginForm(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Password:</Form.Label>
           <Form.Control
+            className="input"
             type="password"
             placeholder="Enter password"
             value={state.password}
@@ -81,7 +85,7 @@ function LoginForm(props) {
             name="password"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="submit" variant="primary" type="submit">
           Login
         </Button>
       </Form>

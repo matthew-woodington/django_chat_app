@@ -84,19 +84,19 @@ function ChatApp(props) {
                     <Form.Group className="new-room" controlId="enterRoom">
                         <Form.Label></Form.Label>
                         <Form.Control
-                            className="add-room-input" 
+                            className="add-room-input input" 
                             type="text" 
                             placeholder="Room name..."
                             required
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             />
-                        <Button variant="primary" className="room-button" type="submit">Add New Room</Button>
+                        <Button variant="primary" className="new-room-button submit" type="submit">Add New Room</Button>
                     </Form.Group>
                 </Form>
             </li>
         </ul>
-        <Messages filter={filter} activeRoom={activeRoom}/>
+        <Messages filter={filter} activeRoom={activeRoom} user={props.user}/>
     </>
   );
 }

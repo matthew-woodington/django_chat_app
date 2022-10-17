@@ -57,9 +57,11 @@ function RegisterForm(props) {
   return (
     <div className="register-form">
       <Form onSubmit={checkEqualPass}>
+        <h1 className="login-title">Register</h1>
         <Form.Group className="mb-3" controlId="usernameReg">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Username:</Form.Label>
           <Form.Control
+            className="input"
             type="text"
             placeholder="Enter username"
             value={stateReg.username}
@@ -69,8 +71,9 @@ function RegisterForm(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="emailReg">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Email:</Form.Label>
           <Form.Control
+            className="input"
             type="email"
             placeholder="Enter email"
             value={stateReg.email}
@@ -80,8 +83,9 @@ function RegisterForm(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password1">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Password:</Form.Label>
           <Form.Control
+            className="input"
             type="password"
             placeholder="Enter password"
             value={stateReg.password1}
@@ -91,8 +95,8 @@ function RegisterForm(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="password2">
-          <Form.Label>Password 2</Form.Label>
           <Form.Control
+            className="input"
             type="password"
             placeholder="Enter password again"
             value={stateReg.password2}
@@ -101,7 +105,7 @@ function RegisterForm(props) {
             name="password2"
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button className="submit" variant="primary" type="submit">
           Register
         </Button>
       </Form>

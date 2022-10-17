@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Fugaz+One&display=swap');
+
 .app {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background-color: #999999;
+  background-color: #5e5e5e;
   min-height: 100vh;
+}
+
+.title {
+  font-family: 'Fugaz One', Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  color: #e2a055;
+  margin-right: 5px;
+}
+
+.title:hover {
+  color: #e2a055;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  font-family: 'Fugaz One', Arial, Helvetica, sans-serif;
+  color: #969696;
+}
+
+.subtitle:hover {
+  color: #969696;
+}
+
+.username, .logout {
+  color: #969696;
+  font-size: 20px;
+}
+
+.user-icon {
+  margin-right: 5px;
+}
+
+.username:hover, .logout:hover {
+  color: #e2a055;
 }
 
 .list {
@@ -11,26 +47,56 @@
   padding: 0;
 }
 
+.submit {
+  border: 1px solid #e2a055;
+  background-color: #e2a055;
+  color: #212121;
+}
+
+.submit:hover {
+  border: 1px solid #e27d0a;
+  background-color: #e27d0a;
+  color: #fff;
+}
+
+.input {
+  background-color: #c5c5c5;
+  border: 2px solid #969696;
+}
+
+.nav {
+  border-radius: 0px;
+  background: #212121;
+  box-shadow: inset 42px -42px 84px #1e1e1e,
+            inset -42px 42px 84px #242424;
+}
+
 .main {
   width: 80%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   padding: 10px;
-  background-color: #fff;
+  background-color: #878787;
 }
 
 .user-login {
-  width: 60%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .login-form, .register-form {
   width: 100%;
+  margin: 40px;
+}
+
+.login-title {
+  font-family: 'Fugaz One', Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .rooms {
@@ -41,7 +107,7 @@
   flex-direction: column;
   padding: 10px;
   margin: 0;
-  background-color: #fff;
+  background-color: #878787;
 }
 
 .room-li {
@@ -50,8 +116,22 @@
 
 .room-button {
   width: 100%;
-  border: none;
+  border: solid 1px #212121;
+  margin-bottom: 5px;
+  color: #212121;
 }
+
+.room-button:hover {
+  background-color: #e2a055;
+  border-color: #e2a055;
+}
+
+.new-room-button {
+  width: 100%;
+  color: #212121;
+  margin-bottom: 5px;
+}
+
 
 .add-room-input {
   margin-bottom: 5px;
@@ -60,14 +140,16 @@
 .send-recieve {
   width: 80%;
   padding: 10px 0 0 0;
-  background-color: #999999;
-  border-radius: 5px;
+  border-radius: 0px;
+  background: #5e5e5e;
+  box-shadow: inset 42px -42px 84px #565656,
+            inset -42px 42px 84px #666666;
 }
 
 .message {
   margin: 10px;
   border-radius: 10px;
-  background-color: #f3f6f4;
+  background-color: #e2a055;
   padding: 10px;
 }
 
@@ -83,9 +165,9 @@
 
 .messeger {
   width: 100%;
-  padding: 0 10px 10px 10px;
-  background-color: #fff;
-  position: relative;
+  padding: 0 10px 30px 10px;
+  background-color: #878787;
+  position: sticky;
   bottom: 0;
 }
 
@@ -94,7 +176,7 @@
 }
 
 .padding {
-  min-height: 200px;
+  min-height: 100vh;
 }
 
 .trash {
@@ -104,6 +186,20 @@
 @media (max-width: 956px) {
   .main {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .user-login {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .login-form, .register-form {
+    margin: 0;
+  }
+
+  .register-form {
+    margin-top: 20px;
   }
 
   .rooms {
@@ -112,6 +208,12 @@
 
   .send-recieve {
     width: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .subtitle {
+    display: none;
   }
 }
 

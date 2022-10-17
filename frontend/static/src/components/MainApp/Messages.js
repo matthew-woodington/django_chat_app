@@ -14,7 +14,7 @@ function Messages(props) {
   };
 
   const getMessages = useCallback(async () => {
-    const response = await fetch(`/api_v1/chats`).catch(handleError);
+    const response = await fetch(`/api_v1/chats/`).catch(handleError);
     if (!response.ok) {
       throw new Error("Network response was not OK");
     } else {
@@ -52,7 +52,8 @@ function Messages(props) {
     } else {
       const data = await response.json();
       console.log(data);
-      getMessages()
+    //   getMessages()
+      setMessages([...messages, data])
       setText('')
     }
   };
@@ -63,20 +64,17 @@ function Messages(props) {
       headers: {
         'X-CSRFToken': Cookies.get('csrftoken'),
       },
-  });
-  const data = await response.json();
-  console.log(data);
-//   const index = messages.findIndex((message) => message.id === id);
-//   const updatedMessages = [...messages]
-//   updatedMessages.splice(index, 1)
-//   setMessages(updatedMessages);
-  getMessages()
+    });
+    const index = messages.findIndex((message) => message.id === id);
+    const updatedMessages = [...messages]
+    updatedMessages.splice(index, 1)
+    setMessages(updatedMessages);
   }
 
 
   const messageList = messages
     .filter((message) => props.filter ? message.room === props.filter : message)
-    .map((message) => <MessageItem key={message.id} message={message} deleteMessage={deleteMessage}/>);
+    .map((message) => <MessageItem key={message.id} message={message} deleteMessage={deleteMessage} user={props.user}/>);
 
   return (
     <div className="send-recieve">
@@ -88,6 +86,7 @@ function Messages(props) {
                 <Form.Group className="col-sm-10 col-12 text-input" controlId="message">
                     <Form.Label></Form.Label>
                     <Form.Control
+                        className="input"
                         required
                         placeholder="Message"
                         type="text" 
@@ -95,7 +94,7 @@ function Messages(props) {
                         onChange={(e) => setText(e.target.value)} />
                 </Form.Group>
                 <div className="button-container col-sm-2 col-12">
-                    <Button className="send-button" variant="primary" type="submit">
+                    <Button className="send-button submit" variant="primary" type="submit">
                         Send
                     </Button>
                 </div>
