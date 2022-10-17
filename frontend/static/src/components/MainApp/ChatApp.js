@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import Button from 'react-bootstrap/Button';
 import Messages from "./Messages";
 import Form from 'react-bootstrap/Form';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 function ChatApp(props) {
@@ -10,6 +11,7 @@ function ChatApp(props) {
   const [activeRoom, setActiveRoom] = useState(1);
   const [filter, setFilter] = useState(1)
   const [name, setName] = useState('')
+  const [dropdownName, setDropdownName] = useState('Destiny 2')
 
   const handleError = (err) => {
     console.warn(err);
@@ -75,11 +77,28 @@ function ChatApp(props) {
     </li>
   ))
 
+    const updateDropdown = (id, name) => {
+        updateFilter(id)
+        setDropdownName(name)
+    }
+
+  const roomSelect = rooms.map(room => (
+    <Dropdown.Item key={room.id} className="menu-item" onClick={() => updateDropdown(room.id, room.name)}>{room.name}</Dropdown.Item>
+  ))
+
   return (
     <>
         <ul className="list rooms">
             {roomButtons}
-            <li className='room-li'>
+            <Dropdown className="room-dropdown">
+                <Dropdown.Toggle className="dropdown-cover">
+                    {dropdownName}
+                </Dropdown.Toggle>
+                <Dropdown.Menu className="menu">
+                    {roomSelect}
+                </Dropdown.Menu>
+            </Dropdown>
+            <li className='new-room-li'>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="new-room" controlId="enterRoom">
                         <Form.Label></Form.Label>

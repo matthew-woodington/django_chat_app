@@ -110,9 +110,11 @@
   background-color: #878787;
 }
 
-.room-li {
+.room-li, .new-room-li {
   width: 100%;
 }
+
+
 
 .room-button {
   width: 100%;
@@ -126,10 +128,48 @@
   border-color: #e2a055;
 }
 
+.room-button:focus {
+  background-color: #e2a055;
+  border-color: #e2a055;
+}
+
 .new-room-button {
   width: 100%;
   color: #212121;
   margin-bottom: 5px;
+}
+
+.room-dropdown {
+  display: none;
+  width: 100%;
+}
+
+.dropdown-cover {
+  width: 100%;
+  color: #212121;
+  background-color: #e2a055;
+  border-color: #e2a055;
+}
+
+.dropdown-cover:hover {
+  background-color: #e27d0a;
+  border-color: #e27d0a;
+}
+
+.menu {
+  width: 100%;
+  background-color: #c5c5c5;
+  text-align: center;
+}
+
+.menu-item {
+  width: 95%;
+  border-radius: 5px;
+  margin: auto;
+}
+
+.menu-item:hover {
+  background-color: #e2a055;
 }
 
 
@@ -204,6 +244,14 @@
 
   .rooms {
     width: 100%;
+  }
+
+  .room-li {
+    display: none;
+  }
+
+  .room-dropdown {
+    display: block;
   }
 
   .send-recieve {
