@@ -40,6 +40,7 @@ function LoginForm(props) {
       throw new Error("Network response was not OK");
     } else {
       const data = await response.json();
+      console.log(data);
       Cookies.set("Authorization", `Token ${data.key}`);
       props.setAuth(true);
     }
